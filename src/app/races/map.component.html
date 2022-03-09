@@ -1,0 +1,13 @@
+<div class="md:ml-20 pb-16 md:pb-0 md:w-screen h-screen">
+  <google-map *ngIf="races.length > 0" height="100%" width="100%" [zoom]="4" [center]="center">
+    <map-marker #markerElem="mapMarker" *ngFor="let raceMarker of races; let i = index" [position]="getPos(i)"
+                [visible]="checkDate(i)"
+                [title]="raceMarker['raceName']" (mapClick)="openInfo(markerElem, i)">
+    </map-marker>
+    <map-info-window [innerHTML]="infoContent"></map-info-window>
+  </google-map>
+  <div *ngIf="races.length === 0" class="mt-8">
+    <img src="assets/f1.png" alt="F1">
+    <p class="text-center text-2xl">Couldn't find any race now!</p>
+  </div>
+</div>
