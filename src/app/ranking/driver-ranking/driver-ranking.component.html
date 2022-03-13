@@ -1,0 +1,32 @@
+<div>
+  <div class="py-4 mb-4 flex flex-row min-w-full">
+    <div class="border-red-600 border-t-2 w-1/3 mt-[20px]"></div>
+    <h1 class="text-4xl text-center font-bold w-1/3">#{{ranking['positionText']}}</h1>
+    <div class="border-red-600 border-t-2 w-1/3 mt-[20px]"></div>
+  </div>
+
+  <div class="flex flex-row">
+    <div class="w-2/3 mr-4 relative ">
+      <img
+        src="https://www.formula1.com/content/fom-website/en/drivers/{{ranking['Driver']['givenName'] | lowercase }}-{{ranking['Driver']['familyName'] | lowercase | specialCharacters}}/_jcr_content/image.img.1920.medium.jpg/1641831947723.jpg"
+        alt="{{ranking['Driver']['familyName'] }} {{ranking['Driver']['givenName']}}"
+        class="rounded-tl-2xl rounded-bl-2xl">
+
+      <div class="absolute top-0 left-0 w-full">
+        <div class="text-white font-bold flex relative text-2xl">
+          <p class="absolute top-0 left-0 ml-4 mt-6">{{ranking['Driver']['code']}}</p>
+          <p class="absolute top-0 right-0 mr-6 mt-6">{{ranking['Driver']['permanentNumber']}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-1/3 text-center flex flex-col items-center justify-center">
+      <div class="min-w-full mb-8">
+        <p class="text-xl font-bold">{{ranking['points']}} Points</p>
+      </div>
+      <div class="min-w-full">
+        <p class="text-lg">{{ranking['wins']}} wins</p>
+      </div>
+    </div>
+  </div>
+</div>

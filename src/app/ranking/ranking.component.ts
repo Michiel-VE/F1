@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../shared/data.service";
 
 @Component({
@@ -7,18 +7,19 @@ import {DataService} from "../shared/data.service";
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent implements OnInit {
-  rankingArr = []
+  rankings = []
 
-  constructor(private data: DataService) { }
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit(): void {
-    const data = localStorage.getItem('rankingsList')
-
-    this.rankingArr = data !== null ? JSON.parse(data) : [];
-
-    if (this.rankingArr.length === 0){
-      this.data.getRanking();
-      this.rankingArr = this.data.rankingsList;
-    }
+    this.getRanking();
   }
+
+  private getRanking(): void {
+    this.dataService.getRanking().subscribe(rankingData => {
+      this.rankings = rankingData.MRData.StandingsTable.StandingsLists[0]['DriverStandings'];
+    })
+  }
+
 }

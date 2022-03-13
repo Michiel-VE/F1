@@ -7,41 +7,21 @@ import {DataService} from "../shared/data.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  topRanking = []
+  topThree = [];
+  loading: boolean = false;
 
-
-  constructor(private data: DataService) {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
-    const dataDriver = localStorage.getItem('driversList');
-    const dataRace = localStorage.getItem('racesList');
-    const dataRanking = localStorage.getItem('rankingsList');
-
-    if (dataDriver === null) {
-      this.data.getDrivers();
-    }
-
-    if (dataRace === null) {
-      this.data.getRaces();
-    }
-
-    if (dataRanking === null) {
-      this.data.getRanking();
-
-      this.topRanking = this.data.rankingsList;
-      console.log(this.topRanking = this.topRanking.slice(0,3));
-    }
-
-
-    this.clearData();
+    this.getTopThree()
   }
 
-  private clearData() {
-    setTimeout(() => {
-      localStorage.clear();
-      console.log("deleting")
-    }, 120000)
+  private getTopThree(): void {
+    this.dataService.getTopThree().subscribe(
+      rankingData => {
+        this.topThree = rankingData.MRData.StandingsTable.StandingsLists[0]['DriverStandings'].splice(0, 3);
+      }
+    );
   }
-
 }

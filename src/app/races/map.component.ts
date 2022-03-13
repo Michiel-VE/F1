@@ -9,26 +9,35 @@ import {DataService} from "../shared/data.service";
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  center: google.maps.LatLngLiteral = {lat: 48, lng: 9}
+  center: google.maps.LatLngLiteral = {lat: 49, lng: 10}
   today: Date = new Date();
   @ViewChild(MapInfoWindow, {static: false}) infoWindow!: MapInfoWindow;
 
   races = [];
   infoContent = '';
 
-  constructor(private data: DataService) {
+  options = {
+    mapTypeId: 'hybrid',
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP
+    },
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      position: google.maps.ControlPosition.TOP_CENTER
+    }
+  }
+
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
-    const data = localStorage.getItem('racesList')
+    this.getRaces();
+  }
 
-    this.races = data !== null ? JSON.parse(data) : [];
-
-    if (this.races.length === 0){
-      this.data.getRaces();
-      this.races = this.data.racesList;
-    }
-
+  private getRaces(): void {
+    this.dataService.getRaces().subscribe(raceData => {
+      this.races = raceData.MRData.RaceTable.Races;
+    })
   }
 
   getPos(index: number): google.maps.LatLngLiteral {
@@ -48,17 +57,17 @@ export class MapComponent implements OnInit {
     this.infoWindow.open(marker)
   }
 
-  checkDate(index: number){
-    let raceDateString:string = this.races[index]['date'];
-    let raceTimeString:string = this.races[index]['time'];
+  checkDate(index: number) {
+    let raceDateString: string = this.races[index]['date'];
+    let raceTimeString: string = this.races[index]['time'];
 
-    let raceDateYear = raceDateString.substring(0,4);
-    let raceDateMonth = raceDateString.substring(5,7);
-    let raceDateDay = raceDateString.substring(8,10);
+    let raceDateYear = raceDateString.substring(0, 4);
+    let raceDateMonth = raceDateString.substring(5, 7);
+    let raceDateDay = raceDateString.substring(8, 10);
 
-    let raceTimeHours = raceTimeString.substring(0,2);
-    let raceTimeMinutes = raceTimeString.substring(3,5);
-    let raceTimeSeconds = raceTimeString.substring(6,8);
+    let raceTimeHours = raceTimeString.substring(0, 2);
+    let raceTimeMinutes = raceTimeString.substring(3, 5);
+    let raceTimeSeconds = raceTimeString.substring(6, 8);
 
     let raceDate = new Date(+raceDateYear, +raceDateMonth, +raceDateDay, +raceTimeHours, +raceTimeMinutes, +raceTimeSeconds)
 

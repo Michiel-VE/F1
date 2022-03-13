@@ -15,6 +15,7 @@ import {AgePipe} from "./shared/age.pipe";
 import {SpecialPipe} from "./shared/special.pipe";
 import { DriverComponent } from './drivers/driver/driver.component';
 import {GoogleMapsModule} from "@angular/google-maps";
+import { DriverRankingComponent } from './ranking/driver-ranking/driver-ranking.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {GoogleMapsModule} from "@angular/google-maps";
     RankingComponent,
     AgePipe,
     SpecialPipe,
-    DriverComponent
+    DriverComponent,
+    DriverRankingComponent
   ],
   imports: [
     BrowserModule,

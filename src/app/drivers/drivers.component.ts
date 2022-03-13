@@ -11,19 +11,16 @@ import {DataService} from "../shared/data.service";
 export class DriversComponent implements OnInit {
   drivers = []
 
-  constructor(private data: DataService) { }
-
-  ngOnInit(): void {
-    const data = localStorage.getItem('driversList')
-
-    this.drivers = data !== null ? JSON.parse(data) : [];
-
-    if (this.drivers.length === 0){
-      console.log("got data in drivers")
-
-      this.data.getDrivers();
-      this.drivers = this.data.driversList;
-    }
+  constructor(private dataService: DataService) {
   }
 
+  ngOnInit(): void {
+    this.getDrivers()
+  }
+
+  private getDrivers(): void {
+    this.dataService.getDrivers().subscribe(driverData => {
+      this.drivers = driverData.MRData.DriverTable.Drivers;
+    })
+  }
 }
