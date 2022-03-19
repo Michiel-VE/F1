@@ -1,22 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-driver',
   templateUrl: './driver.component.html',
-  styleUrls: ['./driver.component.css']
+  styleUrls: ['./driver.component.css'],
 })
-export class DriverComponent implements OnInit {
+export class DriverComponent {
   @Input() lastName = '';
   @Input() firstName = '';
   @Input() code = '';
   @Input() number = '';
   @Input() age = '';
   @Input() nationality = '';
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

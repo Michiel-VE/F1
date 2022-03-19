@@ -1,18 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {RouterOutlet} from "@angular/router";
-import {fader} from "./route-animations";
+import { Component } from '@angular/core';
+import { Data, RouterOutlet } from '@angular/router';
+
+import { fader } from './route-animations';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [fader]
+  animations: [fader],
 })
+
 export class AppComponent {
   title = 'F1';
 
-  prepareRoute(outlet: RouterOutlet){
+  prepareRoute(outlet: RouterOutlet): Data {
     return outlet && outlet.activatedRouteData;
   }
 }

@@ -1,16 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-driver-ranking',
   templateUrl: './driver-ranking.component.html',
-  styleUrls: ['./driver-ranking.component.css']
+  styleUrls: ['./driver-ranking.component.css'],
 })
-export class DriverRankingComponent implements OnInit {
-  @Input() ranking: any = null
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class DriverRankingComponent  {
+  @Input() ranking: any = null;
 }

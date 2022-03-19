@@ -1,26 +1,28 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {DataService} from "../shared/data.service";
+import { Component, OnInit } from '@angular/core';
 
-@Injectable()
+import { Driver } from '../../interfaces/driver';
+import { DataService } from '../shared/data.service';
+
 @Component({
   selector: 'app-drivers',
   templateUrl: './drivers.component.html',
-  styleUrls: ['./drivers.component.css']
+  styleUrls: ['./drivers.component.css'],
 })
+
 export class DriversComponent implements OnInit {
-  drivers = []
+  drivers = [];
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
-    this.getDrivers()
+    this.getDrivers();
   }
 
   private getDrivers(): void {
-    this.dataService.getDrivers().subscribe(driverData => {
+    //TODO fix type
+    this.dataService.getDrivers().subscribe((driverData: any) => {
       this.drivers = driverData.MRData.DriverTable.Drivers;
-    })
+    });
   }
 }

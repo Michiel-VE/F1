@@ -8,7 +8,7 @@ describe('DriverRankingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DriverRankingComponent ]
+      declarations: [ DriverRankingComponent ],
     })
     .compileComponents();
   });
