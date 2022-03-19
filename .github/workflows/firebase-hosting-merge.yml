@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
+       uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -40,5 +40,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_F1_PROJECT_338419 }}'
           channelId: live
           projectId: f1-project-338419
-
-
