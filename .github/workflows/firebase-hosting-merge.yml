@@ -40,3 +40,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_F1_PROJECT_338419 }}'
           channelId: live
           projectId: f1-project-338419
+
+
