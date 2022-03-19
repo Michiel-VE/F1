@@ -1,6 +1,6 @@
 # F1 Stats App
 
-Hey there! Thank for checking out my Github repo
+Hey there! Thanks for checking out my Github repo
 
 ## What is the app?
 
