@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
 
 import { Driver } from '../../interfaces/driver';
 import { DataService } from '../shared/data.service';
@@ -24,7 +23,7 @@ export class DriversComponent implements OnInit {
     this.dataService
       .getDrivers()
       .subscribe((driverData: Driver[]) => {
-      this.drivers = driverData;
-    });
+        this.drivers = driverData;
+      });
   }
 }

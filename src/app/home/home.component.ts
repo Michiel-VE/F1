@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, take } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs';
 
 import { Driver } from '../../interfaces/driver';
 import { DataService } from '../shared/data.service';

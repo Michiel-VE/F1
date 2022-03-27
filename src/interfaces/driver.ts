@@ -1,4 +1,4 @@
-export interface Driver{
+export interface Driver {
   id: number;
   team_id: number;
   firstName: string;
