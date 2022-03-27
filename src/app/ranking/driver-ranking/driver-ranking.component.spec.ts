@@ -19,15 +19,18 @@ describe('DriverRankingComponent', () => {
 
     component = fixture.componentInstance;
     component.driver = {
-      positionText: 1,
-      Driver: {
-        givenName: 'Valtteri',
-        familyName: 'Bottas',
-        code: 'BOT',
-        permanentNumber: '77',
-      },
-      points: 320,
-      wins: 2,
+      id: 1,
+      team_id: 1,
+      firstName: 'Valterri',
+      lastName: 'Bottas',
+      permanentNumber: '77',
+      code: 'BOT',
+      birthday: new Date('1989-08-28'),
+      picture: '///',
+      country: 'Finland',
+      wins: '1',
+      points: 8.0,
+      penaltyPoints: 0,
     };
     fixture.detectChanges();
   });
