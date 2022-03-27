@@ -1,25 +1,25 @@
 <div class="flex flex-row relative mx-4 mb-6">
   <div class="w-2/3 mr-4">
     <img
-      src="https://www.formula1.com/content/fom-website/en/drivers/{{firstName | lowercase }}-{{lastName | lowercase | specialCharacters}}/_jcr_content/image.img.1920.medium.jpg/1641831947723.jpg"
-      alt="{{firstName }} {{lastName}}" class="rounded-tl-2xl rounded-bl-2xl">
+      src="https://www.formula1.com/content/fom-website/en/drivers/{{driver.firstName | lowercase }}-{{driver.lastName | lowercase | specialCharacters}}/_jcr_content/image.img.1920.medium.jpg/1641831947723.jpg"
+      alt="{{driver.firstName }} {{driver.lastName}}" class="rounded-tl-2xl rounded-bl-2xl">
 
     <div class="absolute top-0 left-0 w-2/3">
       <div class="text-white flex relative text-2xl">
-        <p class="absolute top-0 left-0 ml-6 mt-6">{{code}}</p>
-        <p  class="absolute top-0 right-0 mr-6 mt-6">{{number}}</p>
+        <p class="absolute top-0 left-0 ml-6 mt-6">{{driver.code}}</p>
+        <p  class="absolute top-0 right-0 mr-6 mt-6">{{driver.permanentNumber}}</p>
       </div>
     </div>
 
   </div>
   <div class="w-1/3 text-center flex flex-col items-center justify-center">
     <div class="min-w-full mb-8">
-      <p class="text-xl font-bold">{{lastName}}</p>
-      <p>{{firstName}}</p>
+      <p class="text-xl font-bold">{{driver.lastName}}</p>
+      <p>{{driver.lastName}}</p>
     </div>
     <div class="min-w-full">
-      <p>{{age}} years</p>
-      <p>{{nationality}}</p>
+      <p>{{driver.birthday.toString() | age}} years</p>
+      <p>{{driver.country}}</p>
     </div>
   </div>
 

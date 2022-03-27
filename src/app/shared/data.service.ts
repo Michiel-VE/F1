@@ -1,26 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { environment } from '../../environments/environment';
+import { Driver } from '../../interfaces/driver';
+import { Race } from '../../interfaces/race';
 
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
+  private baseUrl = environment.baseUrl;
+
   constructor(private http: HttpClient) {
   }
 
-  //TODO fix type
-  getDrivers(): any {
-    return this.http.get<any>(`https://ergast.com/api/f1/${new Date().getFullYear() - 1}/drivers.json`);
+  getDrivers(): Observable<Driver[]> {
+    return this.http.get<Driver[]>(`${this.baseUrl}/drivers`);
   }
 
-  getRaces(): any {
-    return this.http.get<any>(`https://ergast.com/api/f1/${new Date().getFullYear()}/races.json`);
+  getRaces(): Observable<Race[]> {
+    return this.http.get<Race[]>(`${this.baseUrl}/races`);
   }
 
-  getRanking(): any {
-    return this.http.get<any>(`https://ergast.com/api/f1/${new Date().getFullYear() - 1}/driverStandings.json`);
-  }
-
-  getTopThree(): any {
-    return this.http.get<any>(`https://ergast.com/api/f1/${new Date().getFullYear() - 1}/driverStandings.json`);
+  getTopThree(): Observable<Driver[]> {
+    return this.http.get<Driver[]>(`${this.baseUrl}/ranking`);
   }
 }

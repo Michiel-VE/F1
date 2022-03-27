@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Driver } from '../../interfaces/driver';
 import { DataService } from '../shared/data.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { DataService } from '../shared/data.service';
   styleUrls: ['./ranking.component.css'],
 })
 export class RankingComponent implements OnInit {
-  rankings = [];
+  drivers: Driver[] = [];
 
   constructor(private dataService: DataService) {
   }
@@ -18,9 +19,8 @@ export class RankingComponent implements OnInit {
   }
 
   private getRanking(): void {
-    //TODO fix type
-    this.dataService.getRanking().subscribe((rankingData: any) => {
-      this.rankings = rankingData.MRData.StandingsTable.StandingsLists[0]['DriverStandings'];
+    this.dataService.getDrivers().subscribe((rankingData: Driver[]) => {
+      this.drivers = rankingData;
     });
   }
 

@@ -18,7 +18,7 @@ describe('DriverRankingComponent', () => {
     fixture = TestBed.createComponent(DriverRankingComponent);
 
     component = fixture.componentInstance;
-    component.ranking = {
+    component.driver = {
       positionText: 1,
       Driver: {
         givenName: 'Valtteri',

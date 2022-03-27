@@ -5,13 +5,15 @@
 </div>
 
 <div class="pt-20 mb-20 md:ml-20">
-  <div *ngIf="rankings.length === 0">
+  <div *ngIf="drivers.length === 0">
     <img src="assets/f1.png" alt="F1">
     <p class="text-center text-2xl">Couldn't find any ranking now!</p>
   </div>
 
 
-  <div  *ngIf="rankings.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="mb-4 mx-4" *ngFor="let ranking of rankings; let i = index">
-      <app-driver-ranking [ranking]="ranking"></app-driver-ranking>
+  <div *ngIf="drivers.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div class="mb-4 mx-4" *ngFor="let driver of drivers; let i = index">
+      <app-driver-ranking [driver]="driver"></app-driver-ranking>
+    </div>
   </div>
+</div>

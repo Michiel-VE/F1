@@ -1,8 +1,8 @@
 export interface Driver{
   id: number;
   team_id: number;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   permanentNumber: string;
   code: string;
   birthday: Date;

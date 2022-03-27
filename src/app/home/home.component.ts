@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject, take } from 'rxjs';
 
+import { Driver } from '../../interfaces/driver';
 import { DataService } from '../shared/data.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { DataService } from '../shared/data.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  topThree = [];
+  topThree: Driver[] = [];
   loading = false;
 
   constructor(private dataService: DataService) {
@@ -19,11 +21,13 @@ export class HomeComponent implements OnInit {
   }
 
   private getTopThree(): void {
-    //TODO fix type
-    this.dataService.getTopThree().subscribe(
-      (rankingData: any) => {
-        this.topThree = rankingData.MRData.StandingsTable.StandingsLists[0]['DriverStandings'].splice(0, 3);
-      },
-    );
+    this.dataService
+      .getTopThree()
+      .pipe(take(1))
+      .subscribe((rankingData: Driver[]) => {
+          this.topThree = rankingData;
+        console.log(this.topThree[0]);
+        },
+      );
   }
 }

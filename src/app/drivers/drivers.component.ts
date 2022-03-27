@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs';
 
 import { Driver } from '../../interfaces/driver';
 import { DataService } from '../shared/data.service';
@@ -10,7 +11,7 @@ import { DataService } from '../shared/data.service';
 })
 
 export class DriversComponent implements OnInit {
-  drivers = [];
+  drivers: Driver[] = [];
 
   constructor(private dataService: DataService) {
   }
@@ -20,9 +21,10 @@ export class DriversComponent implements OnInit {
   }
 
   private getDrivers(): void {
-    //TODO fix type
-    this.dataService.getDrivers().subscribe((driverData: any) => {
-      this.drivers = driverData.MRData.DriverTable.Drivers;
+    this.dataService
+      .getDrivers()
+      .subscribe((driverData: Driver[]) => {
+      this.drivers = driverData;
     });
   }
 }

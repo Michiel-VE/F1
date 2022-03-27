@@ -3,7 +3,7 @@
     <google-map *ngIf="races.length > 0" height="100%" width="100%" [options]="options" [zoom]="5" [center]="center">
       <map-marker #markerElem="mapMarker" *ngFor="let raceMarker of races; let i = index" [position]="getPos(i)"
                   [visible]="checkDate(i)"
-                  [title]="raceMarker['raceName']" (mapClick)="openInfo(markerElem, i)">
+                  [title]="raceMarker.name" (mapClick)="openInfo(markerElem, i)">
       </map-marker>
       <map-info-window [innerHTML]="infoContent"></map-info-window>
     </google-map>
