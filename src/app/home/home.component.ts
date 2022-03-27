@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
       .pipe(take(1))
       .subscribe((rankingData: Driver[]) => {
           this.topThree = rankingData;
-        console.log(this.topThree[0]);
         },
       );
   }
