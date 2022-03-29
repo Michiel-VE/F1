@@ -9,10 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DriverComponent } from './drivers/driver/driver.component';
-import { DriversComponent } from './drivers/drivers.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
 import { MapComponent } from './races/map.component';
 import { DriverRankingComponent } from './ranking/driver-ranking/driver-ranking.component';
 import { RankingComponent } from './ranking/ranking.component';
@@ -24,13 +21,10 @@ import { SpecialPipe } from './shared/special.pipe';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
-    DriversComponent,
     MapComponent,
     RankingComponent,
     AgePipe,
     SpecialPipe,
-    DriverComponent,
     DriverRankingComponent,
   ],
   imports: [

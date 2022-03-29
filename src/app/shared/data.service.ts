@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Driver } from '../../interfaces/driver';
 import { Race } from '../../interfaces/race';
+import { Team } from '../../interfaces/team';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +23,7 @@ export class DataService {
     return this.http.get<Race[]>(`${this.baseUrl}/races`);
   }
 
-  getTopThree(): Observable<Driver[]> {
-    return this.http.get<Driver[]>(`${this.baseUrl}/ranking`);
+  getTeams(): Observable<Team[]> {
+    return this.http.get<Team[]>(`${this.baseUrl}/teams`);
   }
 }

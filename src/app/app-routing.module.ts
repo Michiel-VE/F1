@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { DriversComponent } from './drivers/drivers.component';
-import { HomeComponent } from './home/home.component';
 import { MapComponent } from './races/map.component';
+import { DriverRankingComponent } from './ranking/driver-ranking/driver-ranking.component';
 import { RankingComponent } from './ranking/ranking.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'drivers',
-    component: DriversComponent,
+    redirectTo: '/ranking/driver',
+    pathMatch: 'full',
   },
   {
     path: 'races',
@@ -22,6 +18,16 @@ const routes: Routes = [
   {
     path: 'ranking',
     component: RankingComponent,
+    children: [
+      {
+        path: 'driver',
+        component: DriverRankingComponent,
+      },
+      {
+        path: 'team',
+        component: DriverRankingComponent,
+      },
+    ],
   },
 ];
 

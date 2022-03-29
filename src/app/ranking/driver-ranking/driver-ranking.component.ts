@@ -9,4 +9,5 @@ import { Driver } from '../../../interfaces/driver';
 })
 export class DriverRankingComponent {
   @Input() driver!: Driver;
+  @Input() place = 0;
 }

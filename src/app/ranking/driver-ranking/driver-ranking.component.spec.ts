@@ -28,6 +28,7 @@ describe('DriverRankingComponent', () => {
       birthday: new Date('1989-08-28'),
       picture: '///',
       country: 'Finland',
+      countryCode: 'FI',
       wins: '1',
       points: 8.0,
       penaltyPoints: 0,

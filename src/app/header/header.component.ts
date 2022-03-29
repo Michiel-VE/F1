@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faHome, faMapMarkedAlt, faTrophy, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDay, faMedal, faMapMarkedAlt, faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +7,8 @@ import { faHome, faMapMarkedAlt, faTrophy, faUser } from '@fortawesome/free-soli
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  faHome = faHome;
-  faUser = faUser;
+  faMedal = faMedal;
+  faCalender = faCalendarDay;
   faMap = faMapMarkedAlt;
   faTrophy = faTrophy;
 

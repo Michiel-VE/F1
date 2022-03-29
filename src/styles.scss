@@ -2,3 +2,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: Formula1-Black;
+  src: local(Formula1-Black), url("/assets/fonts/Formula1-Black.ttf");
+}
+
+@font-face {
+  font-family: Formula1-Bold;
+  src: local(Formula1-Bold), url("/assets/fonts/Formula1-Bold.ttf");
+}
+
+@font-face {
+  font-family: Formula1-Regular;
+  src: local(Formula1-Regular), url("/assets/fonts/Formula1-Regular.ttf");
+}
+
+@font-face {
+  font-family: Formula1-Wide;
+  src: local(Formula1-Wide), url("/assets/fonts/Formula1-Wide.ttf");
+}

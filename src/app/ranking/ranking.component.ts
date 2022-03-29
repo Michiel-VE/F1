@@ -21,6 +21,7 @@ export class RankingComponent implements OnInit {
   private getRanking(): void {
     this.dataService.getDrivers().subscribe((rankingData: Driver[]) => {
       this.drivers = rankingData;
+      console.log(this.drivers);
     });
   }
 
