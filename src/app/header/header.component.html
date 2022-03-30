@@ -1,19 +1,19 @@
 <div
   class="flex flex-row md:flex-col items-center w-full md:w-20 h-16 md:h-full space-between text-center  text-[#F3F3F3] text-2xl fixed bottom-0 bg-[#2D2D2D] z-50">
-  <a routerLink="/ranking/driver" routerLinkActive="bg-black border-t-4 md:border-t-0 md:border-r-4 border-[#ff0000]"
+  <a aria-label="Go to driver ranking" routerLink="/ranking/driver" routerLinkActive="bg-black border-t-4 md:border-t-0 md:border-r-4 border-[#ff0000]"
      [routerLinkActiveOptions]="{exact: true}"
      class="w-1/4 md:h-20 md:w-full p-4 md:p-0 flex items-center justify-center">
     <fa-icon [icon]="faMedal"></fa-icon>
   </a>
-  <a routerLink="/ranking/team" routerLinkActive="bg-black border-t-4 md:border-r-4 md:border-t-0 border-[#ff0000]"
+  <a aria-label="Go to Team ranking" routerLink="/ranking/team" routerLinkActive="bg-black border-t-4 md:border-r-4 md:border-t-0 border-[#ff0000]"
      class="w-1/4 md:h-20 md:w-full p-4 md:p-0 flex items-center justify-center">
     <fa-icon [icon]="faTrophy"></fa-icon>
   </a>
-  <a routerLink="/races" routerLinkActive="bg-black border-t-4 md:border-r-4 md:border-t-0 border-[#ff0000]"
+  <a aria-label="Show race map" routerLink="/races" routerLinkActive="bg-black border-t-4 md:border-r-4 md:border-t-0 border-[#ff0000]"
      class="w-1/4 md:h-20 md:w-full p-4 md:p-0 flex items-center justify-center">
     <fa-icon [icon]="faMap"></fa-icon>
   </a>
-  <a routerLink="/calender" routerLinkActive="bg-black border-t-4 md:border-r-4 md:border-t-0 border-[#ff0000]"
+  <a aria-label="Go to race calender" routerLink="/calender" routerLinkActive="bg-black border-t-4 md:border-r-4 md:border-t-0 border-[#ff0000]"
      class="w-1/4 md:h-20 md:w-full p-4 md:p-0 flex items-center justify-center">
     <fa-icon [icon]="faCalender"></fa-icon>
   </a>
