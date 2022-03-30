@@ -8,11 +8,11 @@
     ],
     "headers": [
       {
-        "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js|ts|html)",
+        "source": "**",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "public,max-age=100000,immutable"
+            "value": "max-age=100000"
           }
         ]
       }
