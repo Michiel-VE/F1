@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://f1-env-1.eba-jdfr3cp6.eu-central-1.elasticbeanstalk.com/api'
+  baseUrl: 'https://f1-env-1.eba-jdfr3cp6.eu-central-1.elasticbeanstalk.com/api'
 };
 
 /*
