@@ -26,20 +26,5 @@
         ]
       }
     }
-  ],
-  "dataGroups": [
-    {
-      "name": "cache",
-      "urls": [
-        "/api/drivers",
-        "/api/teams",
-        "/api/races",
-        "/api/calender"
-      ],
-      "cacheConfig": {
-        "maxAge": "1d",
-        "maxSize": 200
-      }
-    }
   ]
 }

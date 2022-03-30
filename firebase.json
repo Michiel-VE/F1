@@ -6,6 +6,17 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "headers": [
+      {
+        "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js|ts|html)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=100000,immutable"
+          }
+        ]
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
