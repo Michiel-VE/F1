@@ -5,20 +5,24 @@
 
 @font-face {
   font-family: Formula1-Black;
-  src: local(Formula1-Black), url("/assets/fonts/Formula1-Black.ttf");
+  src: local(Formula1-Black), url("/assets/fonts/Formula1-Black.ttf") format("truetupe");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Formula1-Bold;
-  src: local(Formula1-Bold), url("/assets/fonts/Formula1-Bold.ttf");
+  src: local(Formula1-Bold), url("/assets/fonts/Formula1-Bold.ttf") format("truetupe");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Formula1-Regular;
-  src: local(Formula1-Regular), url("/assets/fonts/Formula1-Regular.ttf");
+  src: local(Formula1-Regular), url("/assets/fonts/Formula1-Regular.ttf") format("truetupe");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Formula1-Wide;
-  src: local(Formula1-Wide), url("/assets/fonts/Formula1-Wide.ttf");
+  src: local(Formula1-Wide), url("/assets/fonts/Formula1-Wide.ttf") format("truetupe");
+  font-display: swap;
 }
