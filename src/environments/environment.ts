@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://f1-api.azurewebsites.net/api'
+  baseUrl: 'https://f1-env.eba-war2bit4.us-east-1.elasticbeanstalk.com/api'
 };
 
 /*

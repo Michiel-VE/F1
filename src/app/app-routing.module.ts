@@ -8,7 +8,7 @@ import { TeamStandingComponent } from './team-standing/team-standing.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/ranking/driver',
+    redirectTo: '/ranking/drivers',
     pathMatch: 'full',
   },
   {
@@ -19,11 +19,11 @@ const routes: Routes = [
     path: 'ranking',
     children: [
       {
-        path: 'driver',
+        path: 'drivers',
         component: DriverStandingComponent,
       },
       {
-        path: 'team',
+        path: 'teams',
         component: TeamStandingComponent,
       },
     ],

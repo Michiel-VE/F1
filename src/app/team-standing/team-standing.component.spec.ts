@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamStandingComponent } from './team-standing.component';
@@ -9,6 +10,7 @@ describe('TeamStandingComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ TeamStandingComponent ],
+      imports: [HttpClientModule],
     })
     .compileComponents();
   });

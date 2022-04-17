@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DriverStandingComponent } from './driver-standing.component';
@@ -8,9 +9,10 @@ describe('DriverStandingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DriverStandingComponent ],
+      declarations: [DriverStandingComponent],
+      imports: [HttpClientModule],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
