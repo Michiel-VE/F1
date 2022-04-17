@@ -22,7 +22,6 @@ export class TeamStandingComponent implements OnInit {
     this.dataService.getTeams().subscribe((teamRankingData: Team[]) => {
       this.teams = teamRankingData;
       console.log(this.teams);
-
     });
   };
 
