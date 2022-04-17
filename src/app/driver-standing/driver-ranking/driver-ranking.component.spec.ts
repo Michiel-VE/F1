@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpecialPipe } from '../../shared/special.pipe';
 import { DriverRankingComponent } from './driver-ranking.component';
 
 describe('DriverRankingComponent', () => {
@@ -9,14 +8,13 @@ describe('DriverRankingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DriverRankingComponent, SpecialPipe],
+      declarations: [DriverRankingComponent],
     })
       .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DriverRankingComponent);
-
     component = fixture.componentInstance;
     component.driver = {
       id: 1,
@@ -33,6 +31,7 @@ describe('DriverRankingComponent', () => {
       points: 8.0,
       penaltyPoints: 0,
     };
+
     fixture.detectChanges();
   });
 

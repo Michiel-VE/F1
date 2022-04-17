@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://f1-env.eba-9ppwgxcy.eu-central-1.elasticbeanstalk.com/api'
+  baseUrl: 'https://f1-api.azurewebsites.net/api'
 };

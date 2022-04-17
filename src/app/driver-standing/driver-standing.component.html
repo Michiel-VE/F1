@@ -1,6 +1,6 @@
 <div class="mb-16">
   <h1 class="font-Formula1Wide text-3xl my-8 text-center">Driver ranking</h1>
-    <div *ngIf="drivers.length > 0;else noDriverRanking" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <div *ngIf="drivers.length > 0;else noDriverRanking" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     <div class="mb-4 mx-4" *ngFor="let driver of drivers; let i = index">
       <app-driver-ranking [driver]="driver" [place]="i"></app-driver-ranking>
     </div>
@@ -8,6 +8,6 @@
 
   <ng-template #noDriverRanking>
     <img src="assets/f1.png" alt="F1">
-    <p class="text-center text-2xl">Couldn't find any driver ranking now!</p>
+    <p class="text-center text-2xl">Couldn't find any ranking now!</p>
   </ng-template>
 </div>

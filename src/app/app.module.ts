@@ -9,12 +9,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DriverRankingComponent } from './driver-standing/driver-ranking/driver-ranking.component';
+import { DriverStandingComponent } from './driver-standing/driver-standing.component';
 import { HeaderComponent } from './header/header.component';
 import { MapComponent } from './races/map.component';
-import { DriverRankingComponent } from './ranking/driver-ranking/driver-ranking.component';
-import { RankingComponent } from './ranking/ranking.component';
 import { AgePipe } from './shared/age.pipe';
 import { SpecialPipe } from './shared/special.pipe';
+import { TeamRankingComponent } from './team-standing/team-ranking/team-ranking.component';
+import { TeamStandingComponent } from './team-standing/team-standing.component';
 
 
 @NgModule({
@@ -22,10 +24,12 @@ import { SpecialPipe } from './shared/special.pipe';
     AppComponent,
     HeaderComponent,
     MapComponent,
-    RankingComponent,
     AgePipe,
     SpecialPipe,
+    DriverStandingComponent,
     DriverRankingComponent,
+    TeamStandingComponent,
+    TeamRankingComponent,
   ],
   imports: [
     BrowserModule,

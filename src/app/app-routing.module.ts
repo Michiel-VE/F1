@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { DriverStandingComponent } from './driver-standing/driver-standing.component';
 import { MapComponent } from './races/map.component';
-import { DriverRankingComponent } from './ranking/driver-ranking/driver-ranking.component';
-import { RankingComponent } from './ranking/ranking.component';
+import { TeamStandingComponent } from './team-standing/team-standing.component';
 
 const routes: Routes = [
   {
@@ -17,15 +17,14 @@ const routes: Routes = [
   },
   {
     path: 'ranking',
-    component: RankingComponent,
     children: [
       {
         path: 'driver',
-        component: DriverRankingComponent,
+        component: DriverStandingComponent,
       },
       {
         path: 'team',
-        component: DriverRankingComponent,
+        component: TeamStandingComponent,
       },
     ],
   },
