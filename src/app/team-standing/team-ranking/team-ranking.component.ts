@@ -9,5 +9,4 @@ import { Team } from '../../../interfaces/team';
 })
 export class TeamRankingComponent {
   @Input() team!: Team;
-  @Input() place = 0;
 }

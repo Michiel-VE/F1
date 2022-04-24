@@ -1,8 +1,8 @@
 <div class="mb-16">
   <h1 class="font-Formula1Wide text-3xl my-8 text-center">Team ranking</h1>
   <div *ngIf="teams.length > 0;else noTeamRanking" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="mb-4 mx-4" *ngFor="let team of teams; let i = index">
-      <app-team-ranking [team]="team" [place]="i"></app-team-ranking>
+    <div class="mb-4 mx-4" *ngFor="let team of teams;">
+      <app-team-ranking [team]="team"></app-team-ranking>
     </div>
   </div>
 
