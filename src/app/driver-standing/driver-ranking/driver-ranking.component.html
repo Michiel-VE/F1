@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3 gap-4">
+<a [routerLink]="['/detail/driver', driver.id]" class="grid grid-cols-3 gap-4">
   <div>
     <img width="216" height="246"
          src="{{driver.picture}}"
@@ -42,4 +42,4 @@
     </div>
   </div>
   <span class="border-b-2 col-span-3 mx-8"></span>
-</div>
+</a>

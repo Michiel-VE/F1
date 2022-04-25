@@ -23,5 +23,4 @@ export class TeamStandingComponent implements OnInit {
       this.teams = teamRankingData;
     });
   };
-
 }

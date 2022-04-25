@@ -2,7 +2,7 @@
   <div class="flex flex-row border-b-2 pb-2">
     <div class="w-2/3">
       <h1 class="font-Formula1Bold text-2xl">{{ team.name | titlecase}}</h1>
-      <p>Points: <span class="font-Formula1Bold text-xl">{{ team.drivers[0].points + team.drivers[1].points}}</span></p>
+      <p>Points: <span class="font-Formula1Bold text-xl">{{ getDriverPoints() }}</span></p>
       <p>Origin: <span class="font-Formula1Bold text-xl">{{ team.origin}}</span></p>
     </div>
     <div class="w-1/3">
@@ -10,4 +10,3 @@
     </div>
   </div>
 </div>
-

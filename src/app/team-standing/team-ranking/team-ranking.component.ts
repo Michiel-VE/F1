@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+import { Driver } from '../../../interfaces/driver';
 import { Team } from '../../../interfaces/team';
 
 @Component({
@@ -9,4 +10,8 @@ import { Team } from '../../../interfaces/team';
 })
 export class TeamRankingComponent {
   @Input() team!: Team;
+
+  getDriverPoints(): number {
+    return  this.team.drivers.reduce((totalPoints: number, driver: Driver) => totalPoints + driver.points, 0);
+  }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { DriverComponent } from './details/driver/driver.component';
 import { DriverStandingComponent } from './driver-standing/driver-standing.component';
 import { MapComponent } from './races/map.component';
 import { TeamStandingComponent } from './team-standing/team-standing.component';
@@ -25,6 +26,15 @@ const routes: Routes = [
       {
         path: 'teams',
         component: TeamStandingComponent,
+      },
+    ],
+  },
+  {
+    path: 'detail',
+    children: [
+      {
+        path: 'driver/:id',
+        component: DriverComponent,
       },
     ],
   },

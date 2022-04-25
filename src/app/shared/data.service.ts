@@ -19,8 +19,16 @@ export class DataService {
     return this.http.get<Driver[]>(`${this.baseUrl}/drivers`);
   }
 
+  getDriver(id: string): Observable<Driver> {
+    return this.http.get<Driver>(`${this.baseUrl}/driver/${id}`);
+  }
+
   getRaces(): Observable<Race[]> {
     return this.http.get<Race[]>(`${this.baseUrl}/races`);
+  }
+
+  getPassedRaces(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/passedRaces`);
   }
 
   getTeams(): Observable<Team[]> {
