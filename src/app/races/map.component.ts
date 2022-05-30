@@ -18,7 +18,6 @@ export class MapComponent implements OnInit {
   infoContent = '';
 
   options = {
-    mapTypeId: 'hybrid',
     zoomControlOptions: {
       position: google.maps.ControlPosition.RIGHT_TOP,
     },
