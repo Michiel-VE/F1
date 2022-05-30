@@ -1,89 +1,92 @@
-<div *ngIf="driver else noDriverFound" class="w-full mb-28">
-  <div class="m-4" (click)="back()">
-    <fa-icon class="text-2xl" [icon]="faArrow"></fa-icon>
-  </div>
+<div class="m-4 cursor-pointer md:ml-24" (click)="back()">
+  <fa-icon class="text-2xl" [icon]="faArrow"></fa-icon>
+</div>
+<div *ngIf="driver else noDriverFound" class="mb-28 md:md-24">
+  <div class="md:w-2/3 m-auto">
 
-  <div>
-    <img class="m-auto" src="{{ driver.picture }}" alt="{{ driver.firstName }}  {{ driver.lastName }}">
-  </div>
+    <div class="grid grid-cols-3 gap-x-8">
+      <img class="m-auto" src="{{ driver.picture }}" alt="{{ driver.firstName }}  {{ driver.lastName }}">
+      <img class="m-auto col-span-2" src="{{ driver.teamPicture }}.jpg" alt="{{ driver.teamName }}" width="550">
+    </div>
 
-  <div class="grid grid-cols-3 grid-rows-2 mt-4 mx-6">
-    <p>
-      {{ driver.firstName | titlecase }}
-    </p>
-    <p class="row-start-2 grid-col-0 col-span-2 text-2xl font-Formula1Bold">
-      {{ driver.lastName | titlecase }}
-    </p>
-    <div class="row-start-1 col-start-3 row-span-2 flex justify-center items-center ">
-      <p class="text-5xl font-Formula1Black">
-        {{ driver.permanentNumber }}
+    <div class="grid grid-cols-3 grid-rows-2 mt-4 mx-6">
+      <p>
+        {{ driver.firstName | titlecase }}
+      </p>
+      <p class="row-start-2 grid-col-0 col-span-2 text-2xl font-Formula1Bold">
+        {{ driver.lastName | titlecase }}
+      </p>
+      <div class="row-start-1 col-start-3 row-span-2 flex justify-center items-center ">
+        <p class="text-5xl font-Formula1Black">
+          {{ driver.permanentNumber }}
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 grid-rows-3 mt-4 mx-6 gap-2">
+      <p>
+        Origin:
+      </p>
+      <p class="row-start-2">
+        Age:
+      </p>
+      <p class="row-start-3">
+        Abbreviation:
+      </p>
+      <p class="col-start-2 col-span-2 text-right text-2xl font-Formula1Bold">
+        {{ driver.country }}
+      </p>
+      <p class="col-start-2 row-start-2 col-span-2 text-right text-2xl font-Formula1Bold">
+        {{ driver.birthday | age }}
+        <span class="text-lg font-Formula1Regular">[{{ driver.birthday | date: 'dd-MM-yyyy'}}]</span>
+      </p>
+      <p class="col-start-2 row-start-3 col-span-2 text-right text-2xl font-Formula1Bold">
+        {{ driver.code }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3 mx-6 mt-4 gap-x-2">
+      <hr class="mt-[10px]">
+      <p class="text-sm col-start-2 text-black/75 text-center">This season</p>
+      <hr class="mt-[10px]">
+    </div>
+
+    <div class="grid grid-cols-2 grid-rows-2 mx-6 mt-4 gap-x-2">
+      <p>
+        Points:
+      </p>
+      <p class="row-start-2">
+        Wins:
+      </p>
+      <p class="text-right text-2xl font-Formula1Bold">
+        {{ driver.points }}
+      </p>
+      <p class="text-right text-2xl font-Formula1Bold">
+        {{ driver.wins }} <span class="text-lg font-Formula1Regular">[{{ passedRaces }} races]</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3 mx-6 mt-4 gap-x-2">
+      <hr class="mt-[10px]">
+      <p class="text-sm col-start-2 text-black/75 text-center">Other stats</p>
+      <hr class="mt-[10px]">
+    </div>
+
+    <div class="grid grid-cols-2 grid-rows-1 mx-6 mt-4 gap-x-2">
+      <p>
+        Penalty points:
+      </p>
+      <p class="text-right text-2xl font-Formula1Bold">
+        {{ driver.penaltyPoints }}
       </p>
     </div>
   </div>
-
-  <div class="grid grid-cols-3 grid-rows-3 mt-4 mx-6 gap-2">
-    <p>
-      Origin:
-    </p>
-    <p class="row-start-2">
-      Age:
-    </p>
-    <p class="row-start-3">
-      Abbreviation:
-    </p>
-    <p class="col-start-2 col-span-2 text-right text-2xl font-Formula1Bold">
-      {{ driver.country }}
-    </p>
-    <p class="col-start-2 row-start-2 col-span-2 text-right text-2xl font-Formula1Bold">
-      {{ driver.birthday | age }}
-      <span class="text-lg font-Formula1Regular">[{{ driver.birthday | date: 'dd-MM-yyyy'}}]</span>
-    </p>
-    <p class="col-start-2 row-start-3 col-span-2 text-right text-2xl font-Formula1Bold">
-      {{ driver.code }}
-    </p>
-  </div>
-
-  <div class="grid grid-cols-3 mx-6 mt-4 gap-x-2">
-    <hr class="mt-[10px]">
-    <p class="text-sm col-start-2 text-black/75">This season</p>
-    <hr class="mt-[10px]">
-  </div>
-
-  <div class="grid grid-cols-2 grid-rows-2 mx-6 mt-4 gap-x-2">
-    <p>
-      Points:
-    </p>
-    <p class="row-start-2">
-      Wins:
-    </p>
-    <p class="text-right text-2xl font-Formula1Bold">
-      {{ driver.points }}
-    </p>
-    <p class="text-right text-2xl font-Formula1Bold">
-      {{ driver.wins }} <span class="text-lg font-Formula1Regular">[{{ passedRaces }} races]</span>
-    </p>
-  </div>
-
-  <div class="grid grid-cols-3 mx-6 mt-4 gap-x-2">
-    <hr class="mt-[10px]">
-    <p class="text-sm col-start-2 text-black/75">Other stats</p>
-    <hr class="mt-[10px]">
-  </div>
-
-  <div class="grid grid-cols-2 grid-rows-1 mx-6 mt-4 gap-x-2">
-    <p>
-      Penalty points:
-    </p>
-    <p class="text-right text-2xl font-Formula1Bold">
-      {{ driver.penaltyPoints }}
-    </p>
-  </div>
-
 </div>
 
 <ng-template #noDriverFound>
-  <div class="mx-4 mt-24 text-center">
+  <div class="mx-4 mt-24 m-auto text-center md:ml-24">
     <h1 class="text-3xl my-8">No Driver found with this id</h1>
+    <img class="m-auto" src="assets/f1.png" alt="F1-logo">
     <a routerLink="/">Go back</a>
   </div>
 </ng-template>

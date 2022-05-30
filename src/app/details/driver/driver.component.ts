@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { Driver } from '../../../interfaces/driver';
+import { DriverWithTeam } from '../../../interfaces/driverWithTeam';
 import { DataService } from '../../shared/data.service';
 
 @Component({
@@ -11,23 +12,23 @@ import { DataService } from '../../shared/data.service';
   styleUrls: ['./driver.component.css'],
 })
 export class DriverComponent implements OnInit {
-  driver?: Driver;
-  driverId?: number;
+  driver?: DriverWithTeam;
   passedRaces?: number;
   faArrow = faArrowLeft;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id: string | null = this.route.snapshot.paramMap.get('id');
+    const id: string | null = this.route.snapshot.queryParamMap.get('driverNumber');
     if (id){
-    this.getDriver(id);
+    this.getDriverWithTeam(id);
     }
     this.getPassedRaces();
   }
 
-  private getDriver(id: string): void {
-    this.dataService.getDriver(id).subscribe((driver: Driver) => {
+  private getDriverWithTeam(id: string): void {
+    this.dataService.getDriverWithTeam(id).subscribe((driver: DriverWithTeam) => {
+      console.log(driver);
       this.driver = driver;
     });
   }

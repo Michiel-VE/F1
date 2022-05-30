@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { Driver } from '../../interfaces/driver';
+import { DriverWithTeam } from '../../interfaces/driverWithTeam';
 import { Race } from '../../interfaces/race';
 import { Team } from '../../interfaces/team';
 
@@ -21,6 +22,12 @@ export class DataService {
 
   getDriver(id: string): Observable<Driver> {
     return this.http.get<Driver>(`${this.baseUrl}/driver/${id}`);
+  }
+
+  getDriverWithTeam(id: string): Observable<DriverWithTeam> {
+    let params = new HttpParams();
+    params = params.append('driverNumber', id);
+    return this.http.get<DriverWithTeam>(`${this.baseUrl}/driver`, { params });
   }
 
   getRaces(): Observable<Race[]> {

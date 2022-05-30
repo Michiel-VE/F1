@@ -33,7 +33,7 @@ const routes: Routes = [
     path: 'detail',
     children: [
       {
-        path: 'driver/:id',
+        path: 'driver',
         component: DriverComponent,
       },
     ],
