@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalenderComponent } from './calender.component';
@@ -8,9 +9,10 @@ describe('CalenderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalenderComponent ]
+      declarations: [CalenderComponent],
+      imports: [HttpClientModule],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
