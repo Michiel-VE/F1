@@ -38,6 +38,10 @@ export class DataService {
     return this.http.get<number>(`${this.baseUrl}/passedRaces`);
   }
 
+  getCalender(): Observable<Race[]> {
+    return this.http.get<Race[]>(`${this.baseUrl}/calender`);
+  }
+
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>(`${this.baseUrl}/teams`);
   }

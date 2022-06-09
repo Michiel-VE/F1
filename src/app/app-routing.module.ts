@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { CalenderComponent } from './calender/calender.component';
 import { DriverComponent } from './details/driver/driver.component';
 import { DriverStandingComponent } from './driver-standing/driver-standing.component';
 import { MapComponent } from './races/map.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'races',
     component: MapComponent,
+  },
+  {
+    path: 'calender',
+    component: CalenderComponent,
   },
   {
     path: 'ranking',

@@ -28,7 +28,6 @@ export class DriverComponent implements OnInit {
 
   private getDriverWithTeam(id: string): void {
     this.dataService.getDriverWithTeam(id).subscribe((driver: DriverWithTeam) => {
-      console.log(driver);
       this.driver = driver;
     });
   }

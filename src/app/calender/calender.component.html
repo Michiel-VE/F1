@@ -1,0 +1,10 @@
+<section class="md:ml-24">
+  <div class="font-Formula1Wide text-3xl my-8 text-center">
+    <h1>Calender</h1>
+  </div>
+  <div class="m-auto">
+    <div *ngFor="let calenderItem of calender">
+      <app-race-item [race]="calenderItem"></app-race-item>
+    </div>
+  </div>
+</section>
