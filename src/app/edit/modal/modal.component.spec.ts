@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { ModalComponent } from './modal.component';
 
@@ -8,9 +9,19 @@ describe('ModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      declarations: [ModalComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: [ModalComponent],
+        },
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: [],
+        },
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
