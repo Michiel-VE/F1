@@ -1,0 +1,26 @@
+<div class="min-h-screen w-full flex items-center justify-items-center">
+  <div class="m-auto">
+    <img src="assets/f1.png" alt="Logo F1" class="w-72 m-auto">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <mat-form-field class="w-full">
+          <mat-label>Username</mat-label>
+          <input matInput required [formControlName]="usernameControlName">
+        </mat-form-field>
+
+        <mat-form-field class="w-full">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" required [formControlName]="passwordControlName">
+        </mat-form-field>
+      </div>
+
+      <div class="text-right mt-2">
+        <button type="submit"
+                [ngClass]="form.invalid ? 'text-red-600 cursor-not-allowed ': 'text-white bg-red-600 cursor-pointer font-bolder hover:bg-red-700'"
+                class="p-2 rounded-lg transition duration-150 ease-in-out" [disabled]="form.invalid">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

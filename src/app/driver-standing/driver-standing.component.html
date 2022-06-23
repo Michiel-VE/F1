@@ -1,8 +1,20 @@
+<h1 class="font-Formula1Wide text-3xl pt-8 pb-4 md:ml-24 text-center sm:fixed m-auto bg-white w-full">Driver ranking</h1>
 <div class="mb-16  md:ml-24">
-  <h1 class="font-Formula1Wide text-3xl my-8 text-center">Driver ranking</h1>
-  <div *ngIf="drivers.length > 0;else noDriverRanking" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    <div class="mb-4 m-auto mx-4" *ngFor="let driver of drivers; let i = index">
-      <app-driver-ranking [driver]="driver" [place]="i"></app-driver-ranking>
+  <div *ngIf="drivers.length > 0;else noDriverRanking" class="flex pt-24">
+    <div class="grid grid-cols-1 mx-2 w-full sm:w-1/2 xl:w-1/4 sm:border-r-[1px]">
+      <div class="mb-4 ml-4 sm:ml-0" *ngFor="let driver of drivers; let i = index">
+        <app-driver-ranking (displayDriver)="updateDriver($event)" [driver]="driver" [driverId]="singleDriverId"
+                            class="cursor-pointer">
+          <app-driver *ngIf="singleDriverId; else noDriver;" [driverId]="singleDriverId"></app-driver>
+        </app-driver-ranking>
+      </div>
+    </div>
+
+    <div class="w-1/2 md:w-2/3 lg:ml-8 hidden sm:block">
+      <app-driver *ngIf="singleDriverId; else noDriver;" [driverId]="singleDriverId"></app-driver>
+      <ng-template #noDriver>
+        <p class="ml-2">No driver selected</p>
+      </ng-template>
     </div>
   </div>
 

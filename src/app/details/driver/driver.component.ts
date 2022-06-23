@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { Driver } from '../../../interfaces/driver';
 import { DriverWithTeam } from '../../../interfaces/driverWithTeam';
 import { DataService } from '../../shared/data.service';
 
@@ -11,22 +10,23 @@ import { DataService } from '../../shared/data.service';
   templateUrl: './driver.component.html',
   styleUrls: ['./driver.component.css'],
 })
-export class DriverComponent implements OnInit {
+export class DriverComponent implements OnInit,OnChanges {
   driver?: DriverWithTeam;
   passedRaces?: number;
+  @Input() driverId: number | undefined;
   faArrow = faArrowLeft;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id: string | null = this.route.snapshot.queryParamMap.get('driverNumber');
-    if (id){
-    this.getDriverWithTeam(id);
-    }
-    this.getPassedRaces();
+   this.updateDriver(this.driverId);
   }
 
-  private getDriverWithTeam(id: string): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    this.updateDriver(this.driverId);
+
+  }
+  private getDriverWithTeam(id: number): void {
     this.dataService.getDriverWithTeam(id).subscribe((driver: DriverWithTeam) => {
       this.driver = driver;
     });
@@ -38,8 +38,12 @@ export class DriverComponent implements OnInit {
     });
   }
 
-  back(): void{
-    history.back();
+  private updateDriver(id: number | undefined): void{
+    if (id){
+      this.getDriverWithTeam(id);
+    }
+    this.getPassedRaces();
   }
+
 
 }

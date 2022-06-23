@@ -10,6 +10,7 @@ import { DataService } from '../shared/data.service';
 })
 export class DriverStandingComponent implements OnInit {
   drivers: Driver[] = [];
+  singleDriverId: number | undefined;
 
   constructor(private dataService: DataService) {
   }
@@ -22,6 +23,10 @@ export class DriverStandingComponent implements OnInit {
     this.dataService.getDrivers().subscribe((driverRankingData: Driver[]) => {
       this.drivers = driverRankingData;
     });
+  }
+
+  public updateDriver(driverId: number): void{
+    this.singleDriverId = driverId;
   }
 
 }

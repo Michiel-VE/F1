@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Driver } from '../../../interfaces/driver';
 
@@ -9,5 +9,16 @@ import { Driver } from '../../../interfaces/driver';
 })
 export class DriverRankingComponent {
   @Input() driver!: Driver;
-  @Input() place = 0;
+  @Input() driverId: number | undefined;
+  @Output() displayDriver: EventEmitter<number> = new EventEmitter<number>();
+
+  showDriver(driver: number): void{
+    this.displayDriver.emit(driver);
+  }
+
+  screenWidth(): boolean{
+    const screenWidth = screen.width;
+    return screenWidth <= 640;
+
+  }
 }

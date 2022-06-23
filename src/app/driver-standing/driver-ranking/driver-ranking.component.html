@@ -1,46 +1,38 @@
-<a [routerLink]="['/detail/driver']" [queryParams]="{ driverNumber: driver.id }" class="grid grid-cols-3 gap-4">
-  <div>
-    <img width="216" height="246"
-         src="{{driver.picture}}"
-         alt="{{ driver.firstName | titlecase }} {{ driver.lastName | titlecase }}">
-  </div>
-  <div class="col-span-2">
-    <div class="grid grid-rows-2 grid-cols-3">
-      <div class="col-span-2 grid grid-rows-2">
-        <div class="mt-4">
-          {{driver.firstName}}
+<div [ngClass]="driver.id === driverId && screenWidth()? 'hidden' : 'block'">
+  <div class="grid grid-cols-2" (click)="showDriver(driver.id)">
+    <div class="col-span-2">
+      <div class="grid grid-rows-2 grid-cols-3">
+        <div class="col-span-2 grid grid-rows-2">
+          <div class="mt-4">
+            {{driver.firstName}}
+          </div>
+          <div class="font-Formula1Bold text-2xl">
+            {{driver.lastName}}
+          </div>
         </div>
-        <div class="font-Formula1Bold text-2xl">
-          {{driver.lastName}}
+        <div class="col-start-3 flex justify-center items-center">
+          <img width="35" height="26" class="rounded-xl m-4"
+               src="/assets/flags/4x3/{{ driver.countryCode | lowercase }}.svg"
+               alt="{{ driver.country }}">
         </div>
-      </div>
-      <div class="col-start-3">
-        <img width="35" height="26" class="rounded-xl m-4"
-             src="/assets/flags/4x3/{{ driver.countryCode | lowercase }}.svg"
-             alt="{{ driver.country }}">
-      </div>
-      <div class="col-span-2 grid grid-rows-2">
-        <div>
-          <span class="font-Formula1Bold text-lg">{{driver.wins}}</span>
-          <span class="ml-2" [ngSwitch]="driver.wins">
-            <span *ngSwitchCase="+driver.wins < 2">win</span>
-            <span *ngSwitchCase="+driver.wins > 1">wins</span>
-            <span *ngSwitchDefault>wins</span>
-          </span>
-        </div>
-        <div>
-          <span class="font-Formula1Bold text-3xl">{{driver.points}}</span>
-          <span class="ml-2" [ngSwitch]="driver.points">
-            <span *ngSwitchCase="+driver.wins < 2">point</span>
-            <span *ngSwitchCase="+driver.wins > 1">points</span>
+        <div class="col-span-2 grid grid-rows-2">
+          <div class="row-span-2 flex items-center">
+            <span class="font-Formula1Bold text-3xl ">{{driver.points}}</span>
+            <span [ngSwitch]="driver.points" class="flex align-bottom">
+            <span *ngSwitchCase="+driver.wins < 2"> point</span>
+            <span *ngSwitchCase="+driver.wins > 1"> points</span>
             <span *ngSwitchDefault>points</span>
           </span>
+          </div>
+        </div>
+        <div class="col-start-3 flex justify-center items-center">
+          <span class="font-Formula1Black text-5xl">{{driver.permanentNumber}}</span>
         </div>
       </div>
-      <div class="col-start-3 flex justify-center items-center">
-        <span class="font-Formula1Black text-5xl">{{driver.permanentNumber}}</span>
-      </div>
     </div>
+    <span class="border-b-2 col-span-3 mx-8"></span>
   </div>
-  <span class="border-b-2 col-span-3 mx-8"></span>
-</a>
+</div>
+<div *ngIf="driver.id === driverId" class="block sm:hidden">
+  <ng-content></ng-content>
+</div>
