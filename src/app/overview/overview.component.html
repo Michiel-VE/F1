@@ -1,0 +1,8 @@
+<div class="md:ml-24 mb-20">
+  <h2 class="text-3xl my-2 text-center font-Formula1Wide">Edit driver</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div *ngFor="let driver of drivers">
+      <app-edit-driver [driver]="driver"></app-edit-driver>
+    </div>
+  </div>
+</div>

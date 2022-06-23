@@ -20,11 +20,11 @@ export class DataService {
     return this.http.get<Driver[]>(`${this.baseUrl}/drivers`);
   }
 
-  getDriver(id: string): Observable<Driver> {
+  getDriver(id: number): Observable<Driver> {
     return this.http.get<Driver>(`${this.baseUrl}/driver/${id}`);
   }
 
-  getDriverWithTeam(id: string): Observable<DriverWithTeam> {
+  getDriverWithTeam(id: number): Observable<DriverWithTeam> {
     let params = new HttpParams();
     params = params.append('driverNumber', id);
     return this.http.get<DriverWithTeam>(`${this.baseUrl}/driver`, { params });
@@ -44,5 +44,11 @@ export class DataService {
 
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>(`${this.baseUrl}/teams`);
+  }
+
+  updateDriver(driver: Driver, id: number): Observable<Driver> {
+    console.log('driver', driver);
+    console.log('id', id);
+    return this.http.put<Driver>(`${this.baseUrl}/edit/driver/${id}`, driver);
   }
 }
