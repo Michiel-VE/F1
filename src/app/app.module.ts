@@ -23,6 +23,7 @@ import { EditDriverComponent } from './edit/edit-driver/edit-driver.component';
 import { ModalComponent } from './edit/modal/modal.component';
 import { HeaderComponent } from './header/header.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
+import { LoaderComponent } from './loader/loader.component';
 import { LoginComponent } from './login/login.component';
 import { OverviewComponent } from './overview/overview.component';
 import { MapComponent } from './races/map.component';
@@ -50,6 +51,7 @@ import { TeamStandingComponent } from './team-standing/team-standing.component';
     OverviewComponent,
     EditDriverComponent,
     ModalComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

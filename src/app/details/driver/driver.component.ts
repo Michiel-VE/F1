@@ -10,25 +10,29 @@ import { DataService } from '../../shared/data.service';
   templateUrl: './driver.component.html',
   styleUrls: ['./driver.component.css'],
 })
-export class DriverComponent implements OnInit,OnChanges {
+export class DriverComponent implements OnInit, OnChanges {
   driver?: DriverWithTeam;
   passedRaces?: number;
   @Input() driverId: number | undefined;
-  faArrow = faArrowLeft;
+  isLoading = true;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit(): void {
-   this.updateDriver(this.driverId);
+    this.updateDriver(this.driverId);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.updateDriver(this.driverId);
 
   }
+
   private getDriverWithTeam(id: number): void {
+    this.isLoading = true;
     this.dataService.getDriverWithTeam(id).subscribe((driver: DriverWithTeam) => {
       this.driver = driver;
+      this.isLoading = false;
     });
   }
 
@@ -38,8 +42,8 @@ export class DriverComponent implements OnInit,OnChanges {
     });
   }
 
-  private updateDriver(id: number | undefined): void{
-    if (id){
+  private updateDriver(id: number | undefined): void {
+    if (id) {
       this.getDriverWithTeam(id);
     }
     this.getPassedRaces();

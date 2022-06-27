@@ -1,4 +1,4 @@
-  <div *ngIf="driver else noDriverFound" class="mb-4sm:mb-28 md:md-24 ml-2 sm:fixed">
+  <div *ngIf="driver && !isLoading else noDriverFound" class="mb-4sm:mb-28 md:md-24 ml-2 sm:fixed">
     <div class="m-auto">
       <div class="grid grid-cols-3 gap-x-8">
         <img class="m-auto" src="{{ driver.picture }}" alt="{{ driver.firstName }}  {{ driver.lastName }}">
@@ -80,9 +80,9 @@
   </div>
 
 <ng-template #noDriverFound >
-  <div class="mx-4 mt-24 m-auto text-center md:ml-24">
-    <h1 class="text-3xl my-8">No Driver found with this id</h1>
+  <div class="mx-4 mt-12 m-auto text-center md:ml-24 fixed">
+    <h1 class="text-3xl my-8">Loading driver</h1>
     <img class="m-auto" src="assets/f1.png" alt="F1-logo">
-    <a routerLink="/">Go back</a>
+    <app-loader></app-loader>
   </div>
 </ng-template>
