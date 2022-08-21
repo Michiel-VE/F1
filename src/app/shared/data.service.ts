@@ -47,8 +47,6 @@ export class DataService {
   }
 
   updateDriver(driver: Driver, id: number): Observable<Driver> {
-    console.log('driver', driver);
-    console.log('id', id);
     return this.http.put<Driver>(`${this.baseUrl}/edit/driver/${id}`, driver);
   }
 }

@@ -9,7 +9,7 @@ import { Driver } from '../../../interfaces/driver';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css'],
 })
-export class ModalComponent{
+export class ModalComponent {
   driver!: Driver;
 
   constructor(
@@ -17,7 +17,7 @@ export class ModalComponent{
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
   }
 
-  closeModal(): void{
+  closeModal(): void {
     this.dialogRef.close(this.data);
   }
 

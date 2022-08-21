@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { isEmpty } from 'rxjs';
 
 import { User } from '../../interfaces/user';
 import { LoginService } from '../shared/login.service';
@@ -15,7 +14,7 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (!this.loginService.getCurrentUser ||Object.keys(this.loginService.getCurrentUser).length === 0) {
+    if (!this.loginService.getCurrentUser || Object.keys(this.loginService.getCurrentUser).length === 0) {
       this.router.navigateByUrl('/login');
       return false;
     }
@@ -27,7 +26,6 @@ export class AuthGuard implements CanActivate {
 
     // redirect user if necessary
     if (!valid) {
-      console.log('in valid if');
       this.router.navigateByUrl('/login');
     }
 

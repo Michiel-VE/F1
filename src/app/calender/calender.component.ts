@@ -16,7 +16,6 @@ export class CalenderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('before', this.isLoading);
     this.getRaces();
 
   }
@@ -25,7 +24,6 @@ export class CalenderComponent implements OnInit {
     this.dataService.getCalender().subscribe((calenderData: Race[]) => {
       this.calender = calenderData;
       this.isLoading = false;
-      console.log('after', this.isLoading);
     });
   }
 
