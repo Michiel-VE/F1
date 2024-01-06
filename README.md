@@ -1,8 +1,6 @@
-![](https://skillicons.dev/icons?i=angular,ts,tailwind,idea,firebase)
 # F1 Stats App
 
 Welcome to the Formula 1 Dashboard frontend application! This Angular-based UI is designed to provide users with an experience of exploring Formula 1 race-related data. The application is styled using Tailwind CSS to ensure a modern and visually appealing interface.
-
 
 
 ## What is in the app?
@@ -20,3 +18,6 @@ Welcome to the Formula 1 Dashboard frontend application! This Angular-based UI i
 
 #### Admin Panel
 &emsp;For administrators, there is an exclusive admin panel where authorized users can add and edit values. This functionality ensures that the application remains up-to-date with the latest race results, driver information, and other relevant data.
+
+## Technologies used
+![](https://skillicons.dev/icons?i=angular,ts,tailwind,idea,firebase)
