@@ -1,3 +1,6 @@
 [submodule "F1_FE"]
 	path = F1_FE
 	url = https://github.com/Michiel-VE/F1_FE.git
+[submodule "F1_API"]
+	path = F1_API
+	url = https://github.com/Michiel-VE/F1_API.git
