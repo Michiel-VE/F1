@@ -1,0 +1,3 @@
+[submodule "F1_FE"]
+	path = F1_FE
+	url = https://github.com/Michiel-VE/F1_FE.git
